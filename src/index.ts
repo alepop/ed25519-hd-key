@@ -50,10 +50,12 @@ const CKDPriv = ({ key, chainCode }: Keys, index: number): Keys => {
     };
 };
 
-export const getPublicKey = (privateKey: Buffer): Buffer => {
+export const getPublicKey = (privateKey: Buffer, withZeroByte = true): Buffer => {
     const { signPk } = naclInstance.crypto_sign_seed_keypair(privateKey);
     const zero = Buffer.alloc(1, 0);
-    return Buffer.concat([zero, Buffer.from(signPk)]);
+    return withZeroByte ?
+        Buffer.concat([zero, Buffer.from(signPk)]) :
+        Buffer.from(signPk);
 };
 
 export const isValidPath = (path: string): boolean => {
