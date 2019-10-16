@@ -22,7 +22,7 @@
   "jest": {
     "verbose": true,
     "transform": {
-      ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
+      ".(ts|tsx)": "ts-jest"
     },
     "testRegex": "(/spec/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [
@@ -33,7 +33,7 @@
     "globals": {
       "window": {},
       "ts-jest": {
-        "tsConfigFile": "./tsconfig.json"
+        "tsConfig": "./tsconfig.json"
       }
     }
   },
@@ -52,10 +52,11 @@
     "js-nacl": "1.2.2"
   },
   "devDependencies": {
-    "@types/jest": "21.1.8",
+    "@types/jest": "24.0.19",
     "@types/node": "8.5.1",
-    "jest-cli": "21.2.1",
-    "ts-jest": "21.2.4",
-    "typescript": "2.6.2"
+    "jest": "24.9.0",
+    "jest-cli": "25.0.0",
+    "ts-jest": "24.1.0",
+    "typescript": "3.6.4"
   }
 }
