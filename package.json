@@ -47,15 +47,15 @@
   "author": "Aleksey Popov",
   "license": "GPL-3",
   "dependencies": {
-    "bip39": "^2.4.0",
-    "create-hmac": "^1.1.6",
-    "js-nacl": "^1.2.2"
+    "bip39": "2.4.0",
+    "create-hmac": "1.1.6",
+    "js-nacl": "1.2.2"
   },
   "devDependencies": {
-    "@types/jest": "^21.1.8",
-    "@types/node": "^8.5.1",
-    "jest-cli": "^21.2.1",
-    "ts-jest": "^21.2.4",
-    "typescript": "^2.6.2"
+    "@types/jest": "21.1.8",
+    "@types/node": "8.5.1",
+    "jest-cli": "21.2.1",
+    "ts-jest": "21.2.4",
+    "typescript": "2.6.2"
   }
 }
