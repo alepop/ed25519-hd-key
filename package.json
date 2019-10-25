@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@types/jest": "24.0.19",
-    "@types/node": "8.5.1",
+    "@types/node": "12.11.7",
     "jest": "24.9.0",
     "jest-cli": "25.0.0",
     "ts-jest": "24.1.0",
