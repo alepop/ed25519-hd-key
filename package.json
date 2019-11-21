@@ -49,7 +49,7 @@
   "dependencies": {
     "bip39": "2.4.0",
     "create-hmac": "1.1.6",
-    "js-nacl": "1.2.2"
+    "tweetnacl": "^1.0.1"
   },
   "devDependencies": {
     "@types/jest": "24.0.19",
