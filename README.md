@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/alepop/ed25519-hd-key/branch/master/graph/badge.svg)](https://codecov.io/gh/alepop/ed25519-hd-key)
+
 ed25519 HD Key
 =====
 
