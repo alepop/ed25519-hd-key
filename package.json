@@ -50,11 +50,11 @@
   "dependencies": {
     "bip39": "2.4.0",
     "create-hmac": "1.1.6",
-    "tweetnacl": "^1.0.1"
+    "tweetnacl": "1.0.1"
   },
   "devDependencies": {
     "@types/jest": "24.0.19",
-    "@types/node": "^12.12.11",
+    "@types/node": "12.12.11",
     "jest": "24.9.0",
     "jest-cli": "25.0.0",
     "ts-jest": "24.1.0",
