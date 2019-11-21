@@ -1,6 +1,6 @@
 {
   "name": "ed25519-hd-key",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "BIP-0032 like derivation for ed25519 curve",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
