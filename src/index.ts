@@ -1,5 +1,5 @@
 import * as createHmac from 'create-hmac'
-import * as naclFactory from 'js-nacl';
+import * as nacl from 'tweetnacl'
 
 import { replaceDerive, pathRegex } from './utils';
 
@@ -18,9 +18,6 @@ type Keys = {
 
 const ED25519_CURVE = 'ed25519 seed';
 const HARDENED_OFFSET = 0x80000000;
-
-let naclInstance: Nacl;
-naclFactory.instantiate((nacl: Nacl) => (naclInstance = nacl));
 
 export const getMasterKeyFromSeed = (seed: Hex): Keys => {
     const hmac = createHmac('sha512', ED25519_CURVE);
@@ -51,7 +48,8 @@ const CKDPriv = ({ key, chainCode }: Keys, index: number): Keys => {
 };
 
 export const getPublicKey = (privateKey: Buffer, withZeroByte = true): Buffer => {
-    const { signPk } = naclInstance.crypto_sign_seed_keypair(privateKey);
+    const keyPair = nacl.sign.keyPair.fromSeed(privateKey);
+    const signPk = keyPair.secretKey.subarray(32);
     const zero = Buffer.alloc(1, 0);
     return withZeroByte ?
         Buffer.concat([zero, Buffer.from(signPk)]) :
