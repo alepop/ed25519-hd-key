@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/alepop/ed25519-hd-key",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "tsc -p ./",
     "test": "jest"
   },
