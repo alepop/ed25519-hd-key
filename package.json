@@ -57,7 +57,7 @@
     "@types/node": "13.5.0",
     "jest": "24.9.0",
     "jest-cli": "25.0.0",
-    "ts-jest": "24.1.0",
+    "ts-jest": "24.3.0",
     "typescript": "3.6.4"
   }
 }
