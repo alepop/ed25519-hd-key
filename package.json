@@ -49,7 +49,7 @@
   "license": "GPL-3",
   "dependencies": {
     "bip39": "2.4.0",
-    "create-hmac": "1.1.6",
+    "create-hmac": "1.1.7",
     "tweetnacl": "1.0.1"
   },
   "devDependencies": {
