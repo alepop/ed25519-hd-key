@@ -53,7 +53,7 @@
     "tweetnacl": "1.0.3"
   },
   "devDependencies": {
-    "@types/jest": "25.2.3",
+    "@types/jest": "26.0.15",
     "@types/node": "14.0.4",
     "jest": "25.5.4",
     "jest-cli": "26.0.1",
