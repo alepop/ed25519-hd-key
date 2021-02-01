@@ -67,7 +67,7 @@ export const isValidPath = (path: string): boolean => {
         .some(isNaN as any /* ts T_T*/);
 };
 
-export const derivePath = (path: Path, seed: Hex): Keys => {
+export const derivePath = (path: Path, seed: Hex, offset = HARDENED_OFFSET): Keys => {
     if (!isValidPath(path)) {
         throw new Error('Invalid derivation path');
     }
@@ -80,7 +80,7 @@ export const derivePath = (path: Path, seed: Hex): Keys => {
         .map(el => parseInt(el, 10));
 
     return segments.reduce(
-        (parentKeys, segment) => CKDPriv(parentKeys, segment + HARDENED_OFFSET),
+        (parentKeys, segment) => CKDPriv(parentKeys, segment + offset),
         { key, chainCode },
     );
 };
