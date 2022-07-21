@@ -48,7 +48,6 @@
   "author": "Aleksey Popov",
   "license": "MIT",
   "dependencies": {
-    "bip39": "3.0.2",
     "create-hmac": "1.1.7",
     "tweetnacl": "1.0.3"
   },
