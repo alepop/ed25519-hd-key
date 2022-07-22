@@ -30,7 +30,7 @@ export const getMasterKeyFromSeed = (seed: Hex): Keys => {
     };
 };
 
-const CKDPriv = ({ key, chainCode }: Keys, index: number): Keys => {
+export const CKDPriv = ({ key, chainCode }: Keys, index: number): Keys => {
     const indexBuffer = Buffer.allocUnsafe(4);
     indexBuffer.writeUInt32BE(index, 0);
 
