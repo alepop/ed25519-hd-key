@@ -40,6 +40,58 @@ console.log(chainCode.toString('hex'));
 console.log(getPublicKey(key).toString('hex'))
 // => 005ba3b9ac6e90e83effcd25ac4e58a1365a9e35a3d3ae5eb07b9e4d90bcf7506d
 ```
+
+Browser Usage
+--------------
+
+This library works in browsers with modern bundlers (webpack, vite, parcel, etc.) that support the `browser` field in package.json.
+
+### Webpack Configuration
+
+If using webpack, you may need to add polyfills for Node.js modules. Add this to your webpack config:
+
+```js
+module.exports = {
+  resolve: {
+    fallback: {
+      "crypto": require.resolve("crypto-browserify"),
+      "buffer": require.resolve("buffer"),
+      "stream": require.resolve("stream-browserify")
+    }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+    }),
+  ],
+}
+```
+
+And install the required polyfills:
+
+```bash
+npm install crypto-browserify buffer stream-browserify
+```
+
+### Vite Configuration
+
+For Vite, add this to your `vite.config.js`:
+
+```js
+export default {
+  define: {
+    global: 'globalThis',
+  },
+  resolve: {
+    alias: {
+      buffer: 'buffer',
+    },
+  },
+  optimizeDeps: {
+    include: ['buffer'],
+  },
+}
+```
 Tests
 -----
 ```

@@ -4,6 +4,8 @@
   "description": "BIP-0032 like derivation for ed25519 curve",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "browser": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
     "dist/"
   ],

@@ -3,3 +3,5 @@ npm-debug.log
 /dist
 .tern-port
 /coverage
+browser-test.html
+example-browser.js
