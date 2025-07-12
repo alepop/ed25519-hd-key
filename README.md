@@ -46,31 +46,41 @@ Browser Usage
 
 This library works in browsers with modern bundlers (webpack, vite, parcel, etc.) that support the `browser` field in package.json.
 
+The library depends on Node.js crypto APIs that need polyfills in browser environments. The bundler configuration examples below show how to set this up.
+
 ### Webpack Configuration
 
-If using webpack, you may need to add polyfills for Node.js modules. Add this to your webpack config:
+If using webpack, add polyfills for Node.js modules to your webpack config:
 
 ```js
+const webpack = require('webpack');
+
 module.exports = {
   resolve: {
     fallback: {
       "crypto": require.resolve("crypto-browserify"),
       "buffer": require.resolve("buffer"),
-      "stream": require.resolve("stream-browserify")
+      "stream": require.resolve("stream-browserify"),
+      "string_decoder": require.resolve("string_decoder"),
+      "util": require.resolve("util"),
+      "assert": require.resolve("assert"),
+      "process": require.resolve("process/browser")
     }
   },
   plugins: [
     new webpack.ProvidePlugin({
       Buffer: ['buffer', 'Buffer'],
+      process: 'process/browser',
     }),
   ],
+  // ... rest of your config
 }
 ```
 
-And install the required polyfills:
+Install the required polyfills:
 
 ```bash
-npm install crypto-browserify buffer stream-browserify
+npm install --save-dev crypto-browserify buffer stream-browserify string_decoder util assert process
 ```
 
 ### Vite Configuration
@@ -78,20 +88,32 @@ npm install crypto-browserify buffer stream-browserify
 For Vite, add this to your `vite.config.js`:
 
 ```js
-export default {
+import { defineConfig } from 'vite'
+
+export default defineConfig({
   define: {
     global: 'globalThis',
   },
   resolve: {
     alias: {
       buffer: 'buffer',
+      crypto: 'crypto-browserify',
+      stream: 'stream-browserify',
     },
   },
   optimizeDeps: {
-    include: ['buffer'],
+    include: ['buffer', 'crypto-browserify'],
   },
-}
+})
 ```
+
+### Create React App
+
+For Create React App (CRA) or similar setups, you may need to use [CRACO](https://github.com/gsoft-inc/craco) or eject the configuration to add the polyfills.
+
+### Alternative: Use a Browser-Specific Build
+
+If bundler configuration is too complex for your use case, consider using browser-native crypto APIs or a different library specifically designed for browsers.
 Tests
 -----
 ```
