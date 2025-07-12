@@ -114,6 +114,25 @@ For Create React App (CRA) or similar setups, you may need to use [CRACO](https:
 ### Alternative: Use a Browser-Specific Build
 
 If bundler configuration is too complex for your use case, consider using browser-native crypto APIs or a different library specifically designed for browsers.
+
+### Browser Example
+
+A complete working browser example is available in the [`browser-example/`](./browser-example/) directory. This example:
+
+- ✅ **Proves browser compatibility** with real test execution
+- ⚙️ **Shows proper webpack configuration** with all required polyfills  
+- 🧪 **Runs the same tests** as the Node.js version in the browser
+- 📖 **Serves as a reference** for your own browser projects
+
+To run the browser example:
+
+```bash
+cd browser-example/
+npm install
+npm run dev  # Opens browser automatically
+```
+
+The example will display test results showing that all cryptographic operations work correctly in the browser environment.
 Tests
 -----
 ```

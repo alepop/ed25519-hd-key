@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ed25519-hd-key Browser Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 10px;
+        }
+
+        .description {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #007acc;
+            margin: 20px 0;
+        }
+
+        .summary {
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .summary.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .summary.failure {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .test-details {
+            margin-top: 20px;
+        }
+
+        .test-result {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border-left: 4px solid;
+        }
+
+        .test-result.pass {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .test-result.fail {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .status {
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .name {
+            flex: 1;
+        }
+
+        .error {
+            color: #721c24;
+            font-size: 12px;
+            margin-top: 5px;
+            font-family: monospace;
+            background: rgba(255,255,255,0.5);
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .success-message {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #007acc;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        code {
+            background: #f1f3f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 ed25519-hd-key Browser Test</h1>
+        
+        <div class="description">
+            <h3>About This Test</h3>
+            <p>This page demonstrates that the <code>ed25519-hd-key</code> library works correctly in browser environments when properly configured with Node.js polyfills.</p>
+            <p>The test runs the same validation used in the Node.js test suite, proving that browser compatibility is working as expected.</p>
+        </div>
+
+        <div id="results">
+            <div class="loading">
+                <div class="spinner"></div>
+                Running tests...
+            </div>
+        </div>
+    </div>
+
+    <script src="dist/bundle.js"></script>
+</body>
+</html>

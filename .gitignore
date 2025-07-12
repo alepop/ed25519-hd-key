@@ -6,3 +6,8 @@ npm-debug.log
 browser-test.html
 example-browser.js
 browser-test-project/
+
+# Browser example build artifacts
+browser-example/node_modules/
+browser-example/dist/
+browser-example/package-lock.json
