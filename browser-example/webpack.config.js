@@ -4,13 +4,14 @@ const path = require('path');
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   resolve: {
     fallback: {
       "crypto": require.resolve("crypto-browserify"),
-      "buffer": require.resolve("buffer"),
+      "buffer": require.resolve("buffer/"),
       "stream": require.resolve("stream-browserify"),
       "string_decoder": require.resolve("string_decoder/"),
       "util": require.resolve("util/"),
@@ -27,6 +28,9 @@ module.exports = {
   devServer: {
     static: {
       directory: path.join(__dirname),
+    },
+    devMiddleware: {
+      publicPath: '/', // Serve bundle.js from root
     },
     compress: true,
     port: 9000,
