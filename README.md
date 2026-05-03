@@ -4,8 +4,16 @@
 ed25519 HD Key
 =====
 
+Version 2.0.0
+------------
+
+I've rebuilt the library from the ground up for version 2.0.0. It now uses `@noble/ed25519` and `@noble/hashes`. These libraries are faster, audited, and cleaner.
+
+If you need to use `tweetnacl`, you can stick with version 1.3.0.
+
 Key Derivation for `ed25519`
 ------------
+
 
 [SLIP-0010](https://github.com/satoshilabs/slips/blob/master/slip-0010.md) - Specification
 
