@@ -1,6 +1,7 @@
 {
   "name": "ed25519-hd-key",
-  "version": "1.3.0",
+  "version": "2.0.0",
+  "type": "module",
   "description": "BIP-0032 like derivation for ed25519 curve",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -18,45 +19,32 @@
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc -p ./",
-    "test": "jest"
-  },
-  "jest": {
-    "verbose": true,
-    "transform": {
-      ".(ts|tsx)": "ts-jest"
-    },
-    "testRegex": "(/spec/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "globals": {
-      "window": {},
-      "ts-jest": {
-        "tsConfig": "./tsconfig.json"
-      }
-    }
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
+    "format": "prettier --write 'src/**/*.{js,ts}'"
   },
   "keywords": [
     "ed25519",
     "bip32",
     "slip-0010",
     "crypto",
-    "trezor"
+    "trezor",
+    "hierarchical",
+    "deterministic",
+    "hd key"
   ],
   "author": "Aleksey Popov",
   "license": "MIT",
   "dependencies": {
-    "create-hmac": "1.1.7",
-    "tweetnacl": "1.0.3"
+    "@noble/ed25519": "3.1.0",
+    "@noble/hashes": "2.2.0"
   },
   "devDependencies": {
-    "@types/jest": "25.2.3",
-    "@types/node": "14.0.4",
-    "jest": "25.5.4",
-    "jest-cli": "26.0.1",
-    "ts-jest": "25.5.1",
-    "typescript": "3.9.3"
+    "@types/jest": "30.0.0",
+    "@types/node": "25.6.0",
+    "jest": "30.3.0",
+    "jest-cli": "30.3.0",
+    "ts-jest": "29.4.9",
+    "typescript": "6.0.3",
+    "prettier": "3.8.3"
   }
 }
